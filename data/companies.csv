@@ -1,0 +1,12 @@
+companies,new headline,sentiment score,trading session date,symbol,open,high,low,close,volume
+amazon,Promises of 'passive income' on Amazon led to death threats for negative review,-0.30 (Negative),9/27/2024,AMZN,190.68,190.9,187.34,187.97,34945921.0
+google,Google files EU antitrust complaint accusing Microsoft of stifling cloud competition,-0.30 (Negative),9/27/2024,GOOGL,162.81,165.7,162.6261,163.95,20482712.0
+Apple,"Apple iPhone 16, Apple Watch Series 10 and AirPods 4 debut around the world",0.00 (Neutral),9/27/2024,AAPL,228.46,229.52,227.3,227.79,31421839.0
+Microsoft,Microsoft's GitHub gives clients option to keep sensitive code stored in the EU,0.10 (Positive),9/27/2024,MSFT,431.52,431.85,427.47,428.02,14136408.0
+Tesla,"Tesla, Nvidia lead tech-heavy Nasdaq to one of best days of 2024 after Fed rate cut",1.00 (Positive),9/27/2024,TSLA,257.375,260.6999,254.12,260.46,69096904.0
+NVIDIA,"Tesla, Nvidia lead tech-heavy Nasdaq to one of best days of 2024 after Fed rate cut",1.00 (Positive),,NVDA,,,,,
+Netflix,,,9/27/2024,NFLX,708.36,710.71,701.2509,707.35,2329891.0
+Salesforce,,,,CRM,,,,,
+Meta,"Meta unveils $299 Quest 3S VR headset, Orion AR glasses prototype",0.00 (Neutral),,Meta,,,,,
+Qualcomm,Qualcomm recently approached Intel about a possible takeover,0.00 (Neutral),,QCOM,,,,,
+Alibaba,"Alibaba, Tencent rally as China tech stocks 13-month high on stimulus plans",0.16 (Positive),,BABA,,,,,

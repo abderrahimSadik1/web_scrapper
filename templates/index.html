@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stock Analysis</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* Simple spinner style */
+      .spinner-border {
+        display: none; /* Hidden by default */
+      }
+      .loading {
+        pointer-events: none; /* Disable interactions */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Stock Analysis</h1>
+      <button id="updateButton" class="btn btn-primary mb-3">
+        Update Data
+      </button>
+      <div
+        class="spinner-border text-primary"
+        role="status"
+        id="loadingSpinner"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>New Headline</th>
+            <th>Sentiment Score</th>
+            <th>Trading Session Date</th>
+            <th>Symbol</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for index, row in data.iterrows() %}
+          <tr>
+            <td>{{ row['companies'] }}</td>
+            <td>{{ row['new headline'] }}</td>
+            <td>{{ row['sentiment score'] }}</td>
+            <td>{{ row['trading session date'] }}</td>
+            <td>{{ row['symbol'] }}</td>
+            <td>{{ row['open'] }}</td>
+            <td>{{ row['close'] }}</td>
+            <td>{{ row['high'] }}</td>
+            <td>{{ row['low'] }}</td>
+            <td>{{ row['volume'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      document
+        .getElementById("updateButton")
+        .addEventListener("click", function () {
+          const updateButton = this;
+          const loadingSpinner = document.getElementById("loadingSpinner");
+
+          // Show the spinner and disable the button
+          loadingSpinner.style.display = "block";
+          updateButton.classList.add("loading");
+          updateButton.disabled = true;
+
+          fetch("/update", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                return response;
+              }
+              throw new Error("Network response was not ok.");
+            })
+            .then((data) => {
+              alert("Data updated successfully!");
+              location.reload();
+            })
+            .catch((error) => {
+              console.error(
+                "There was a problem with the fetch operation:",
+                error
+              );
+            })
+            .finally(() => {
+              // Hide the spinner and enable the button
+              loadingSpinner.style.display = "none";
+              updateButton.classList.remove("loading");
+              updateButton.disabled = false;
+            });
+        });
+    </script>
+  </body>
+</html>
